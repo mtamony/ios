@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>SBCERA</title>
+                
+                <!-- CSS -->
+                <link rel="stylesheet"  href="css/index.css">
+                    <link rel="stylesheet"  href="css/SBCERATheme.css">
+                        <link rel="stylesheet"  href="css/jquery.custom.css">
+                            
+                            <link rel="stylesheet"  href="css/jquery.mobile.icons.min.css">
+                                
+                                
+                                <link rel="stylesheet"  href="css/jquery.zrssfeed.css">
+                                    <style>
+                                        body  * {
+                                            text-transform: none;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    <!-- JS -->
+                                    <script type="text/javascript" src="cordova.js"></script>
+                                    <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+                                    <script type="text/javascript" src="js/GAPlugin.js"></script>
+                                    <script type="text/javascript" src="js/index.js"></script>
+                                    <script type="text/javascript">
+                                        app.initialize();
+                                        </script>
+                                    <script type="text/javascript">
+                                        document.addEventListener("offline", onOffline, false);
+                                        function onOffline() {
+                                            navigator.notification.alert("You are not connected to a network. The SBCERA application functions best when connected to a network. Please connect to WiFi or to a data connection for best results. Thank you.")
+                                            ;}
+                                    </script>
+                                    
+                                    <script type="text/javascript" src="js/jquery.js"></script>
+                                    <script type="text/javascript" src="js/jquery.mobile.js"></script>
+                                    <script type="text/javascript" src="js/main.js"></script>
+                                    <script type="text/javascript" src="js/jquery.zrssfeed.js"></script>
+                                    <script type="text/javascript" src="js/retirement_calculator.js"></script>
+                                    <script type="text/javascript" src="js/retirement_split_calculator.js"></script>
+                                    
+                                    </head>
+    <body onload="initialize();loadContent();" onunload="goingAway();" >
+        
+        <div data-role="page" id="page1" name="Home" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel1" data-theme="b">Menu</a>
+                <a href="#right-panel1" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                <div class="ui-btn ui-btn-inline ui-corner-all ui-mini" data-theme="b" onClick="HTRSS()">Refresh</div>
+                <div id="SBCERA-News">
+                </div>
+                
+                <script type="text/javascript">
+                    $(document).ready(
+                                      function () {
+                                      HTRSS()
+                                      });
+                                      
+                                      function HTRSS(){
+                                          $('#SBCERA-News').rssfeed('http://www.sbcera.org/RSS', {
+                                                                    options: 'true',
+                                                                    limit: 10,
+                                                                    content: true,
+                                                                    header: true,
+                                                                    date: false,
+                                                                    linkcontent: true
+                                                                    });
+                                                                    
+                                      };
+                
+                    </script>
+                
+                <!-- begin olark code -->
+                <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+                                                                                                f[z]=function(){
+                                                                                                (a.s=a.s||[]).push(arguments)};var a=f[z]._={
+                                                                                                },q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+                                                                                                                                 f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+                                                                                                0:+new Date};a.P=function(u){
+                                                                                                a.p[u]=new Date-a.p[0]};function s(){
+                                                                                                a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+                                                                                                hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+                                                                                                return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+                                                                                                b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+                                                                                                b.contentWindow[g].open()}catch(w){
+                                                                                                c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+                                                                                                var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+                                                                                                b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+                                                                                                                               loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+                                                                                                /* custom configuration goes here (www.olark.com/documentation) */
+                                                                                                olark.identify('5597-143-10-5315');/*]]>*/</script><!--<noscript><a href="https://www.olark.com/site/5597-143-10-5315/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>-->
+                <!-- end olark code-->
+                <!-- start olark late reply -->
+                <script>
+                    olark('api.rules.defineRule', {
+                          
+                          id: 'delayed_response',
+                          description: 'Will send a response to the visitor after an operator doesn\'t respond.',
+                          
+                          condition: function(pass) {
+                          olark('api.visitor.getDetails', function(details) {
+                                
+                                var delay = 60 / details.messageCountForThisVisit;
+                                
+                                if (details.isConversing &&
+                                    details.secondsSinceLastMessageToOperator >= delay &&
+                                    !details.secondsSinceLastMessageToVisitor) {
+                                pass();
+                                }
+                                
+                                });
+                          },
+                          
+                          action: function() {
+                          olark('api.chat.sendMessageToVisitor', { body: 'Sorry about the delay, SBCERA is a bit busy at the moment. We will be with you in just a moment.  If you need to speak with us immediately, please click on the phone icon and give us a call at 909-885-7980. ' });
+                          olark('api.chat.sendNotificationToOperator', { body: 'Automated delay message has been sent to visitor.' });
+                          },
+                          
+                          perVisitor: true
+                          
+                          });
+                    </script>
+                <!-- end olark late reply -->
+                <!-- begin olark button code -->
+                <script type="text/javascript">
+                    
+                    function startOlark() {
+                        olark('api.box.expand');
+                        
+                    }
+                
+                
+                olark('api.chat.onOperatorsAvailable', function() {
+                      
+                      var availableButton = document.getElementById('available-button');
+                      var awayButton = document.getElementById('away-button');
+                      
+                      if (availableButton) {
+                      availableButton.style.visibility = 'visible';
+                      }
+                      
+                      
+                      if (awayButton) {
+                      awayButton.style.visibility = '';
+                      }
+                      
+                      });
+                      
+                      olark('api.chat.onOperatorsAway', function() {
+                            
+                            var availableButton = document.getElementById('available-button');
+                            var awayButton = document.getElementById('away-button');
+                            
+                            if (availableButton) {
+                            availableButton.style.visibility = '';
+                            }
+                            
+                            
+                            if (awayButton) {
+                            awayButton.style.visibility = 'visible';
+                            }
+                            
+                            });
+                            
+                    </script>
+                <script>
+                    olark.configure('box.start_hidden', true);
+                    </script>
+                
+                <!-- end olark button code -->
+                
+                
+                
+            </div><!-- /content -->
+            
+            <div data-role="panel"  id="left-panel1"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel1" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 1 Home -->
+        
+        <div data-role="page" id="page2" name="Compass" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel2" data-theme="b">Menu</a>
+                <a href="#right-panel2" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                
+                <div class="compass_front">
+                    <a href = "http://www.sbcera.org/CompassPDF"; onclick="window.plugins.googleAnalyticsPlugin.trackPageview('CompassMobile');"><img src="css/images/Compass_Front_lg.jpg" alt="Compass" class="img-compass"/></a>
+                </div>
+                
+                
+                
+            </div><!-- content -->
+            
+            <div data-role="panel"  id="left-panel2"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel2" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 2 Compass -->
+        
+        <div data-role="page" id="page3" name="Newsletter" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel3" data-theme="b">Menu</a>
+                <a href="#right-panel3" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                
+                <div class="compass_front">
+                    <a href="http://www.sbcera.org/Newsletter"; onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'OpenNewsletterMobile');"><img src="css/images/QRimage.jpg"  alt="Newsletter" class="img-compass"/></a>
+                </div>
+            </div><!-- content -->
+            
+            <div data-role="panel"  id="left-panel3"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel3" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 3 Newsletter -->
+        
+        <div data-role="page" id="page4" name="RetCalcNotice" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel4" data-theme="b">Menu</a>
+                <a href="#right-panel4" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                
+                <h3>Important Notice:</h3>
+                <div class="tableBox">
+                    <p><b>This retirement  calculator does not produce an official SBCERA estimate and SBCERA is not bound by the results.</b></p>
+                    <p>
+                    This calculator shows your projected monthly lifetime retirement benefit based on the information entered and is calculated for the unmodified benefit option only. Your actual retirement benefit will be based on your date of retirement, highest final average compensation, verified service credit, and other factors that may differ from the factors used to calculate this estimate. Your benefit may also be subject to cost-of-living adjustments (COLAs), legislative and judicial legal actions, and your reciprocal rights, if any, from other pension systems. The calculator does not provide estimates for disability retirement benefits.</p>
+                    <p>
+                    Reciprocal service credit only counts towards determining when you have accrued the minimum amount of service credit to become vested and eligible for retirement. It will not be included when calculating your retirement benefit. Therefore, it should not be included in your total years of service credit when using this calculator. However, any service credit purchased will be included when calculating your future retirement benefit and should be included for this calculator.</p>
+					<p>
+                    Please <a href="http://www.sbcera.org/about/contact.html" target="_blank">contact SBCERA</a> if you have any questions or would like to request an official benefit estimate.
+                    </p>
+                    
+                </div>
+                
+                
+                <div>
+                    <div style="float: left">
+                        <a href="#page4-1" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="slide" data-direction="reverse" onclick="window.plugins.googleAnalyticsPlugin.trackPageview('RetCalcMobile');">Retirement Calculator</a>
+                    </div>
+                    <div style="float: right">
+                        <a href="#page4-2" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-transition="slide" onclick="window.plugins.googleAnalyticsPlugin.trackPageview('SplitMobile');">Split Service Calculator</a>
+                    </div>
+                </div>
+                
+                
+            </div><!-- content -->
+            
+            <div data-role="panel"  id="left-panel4"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel4" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 4 Ret Calc Notice -->
+        
+        <div data-role="page" id="page4-1" name="RetirementCalcPage" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel4-1" data-theme="b">Menu</a>
+                <a href="#right-panel4-1" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            
+            <div data-role="content" class="tableBox">
+                
+                <h3>Retirement Calculator</h3>
+                <p>The calculator below was created to assist members in understanding how their benefit is calculated. However, this is only an estimate and it is based on the data entered. If you would like an official benefit estimate, please <a href="http://www.sbcera.org/about/contact.html" target="_blank">contact SBCERA</a> to request one or create your own estimates by logging into <a href="https://services.sbcera.org/pgmemberservices/pgwebmember.exe" target="_blank">Member Direct</a>.</p>
+                <p><b>Please enter or select the appropriate information as requested below.</b></p>
+                
+                <form method="POST" name="RetBenCalc" onSubmit="" >
+                    
+                    
+                    <a href="#pageRetElig" data-role="button" data-rel="dialog">Definition of<br>Retirement Eligibility</a>
+                    
+                    <br>
+                    <fieldset data-role="controlgroup">
+                        <script type="text/javascript">
+                            $('#reset').click(function() {
+                                              console.log("Reset");
+                                              $('.resetMe').val('');
+                                              $("input[name='tiers']").attr("checked", false).checkboxradio("refresh");
+                                              });
+                            </script>
+                        <legend><a href="http://services.sbcera.org/MemberDirect/" target="_blank">Your Membership Classification and Tier</a>:</font>
+                            <br>(Select one)
+                            </p></legend>
+                        <div><h3>Tier 1</h3></div>
+                        <input type="radio" name="tiers" id="radio-choice-1" value="tier2055">
+                            <label for="radio-choice-1">General Member (2% @ 55)</label>
+                            
+                            <input type="radio" name="tiers" id="radio-choice-2" value="Safety3">
+                                <label for="radio-choice-2">Safety Member (3% @ 50)</label>
+                                
+                                <div><h3>Tier 2</h3></div>
+                                <input type="radio" name="tiers" id="radio-choice-3" value="tier2">
+                                    <label for="radio-choice-3">General Member (2.5% @ 67)</label>
+                                    
+                                    <input type="radio" name="tiers" id="radio-choice-4" value="safetytier2">
+                                        <label for="radio-choice-4">Safety Member (2.7% @ 57)</label>
+                                        
+                                        </fieldset>
+                    
+                    <br>
+                    <div data-role="fieldcontain">
+                        <label for="Age">Age at Retirement:</label>
+                        
+                        <input type="number" name="Age" id="Age" onChange="incAgeEntry(this)" style="text-align: center" placeholder="Age at Retirement">
+                            <p> (Age at retirement is calculated in quarter year increments; i,e, 50, 50.25, 50.50, 50.75)</p>
+                            
+                            </div>
+                    
+                    <br>
+                    <div data-role="fieldcontain">
+                        <label for="Service">Years of Service Credit:</label>
+                        <input type="number" name="Service" id="Service" onChange="incServiceEntry(this)" style="text-align: center" placeholder="Years of Service Credit">
+                            
+                            </div>
+                    
+                    <br>
+                    
+                    <div data-role="fieldcontain">
+                        
+                        <label for="FinAvgMoComp">Final Average Compensation (Monthly):</label>
+                        <input type="number" name="FinAvgMoComp" id="FinAvgMoComp" onChange="incCompEntry(this)" style="text-align: center" placeholder="Final Average Compensation Monthly * ">
+                            <p>(Do not use dollar signs or commas)</p>
+                            
+                            </div>
+                    
+                    
+                    <div>
+                        <a href="#pageFinalComp" data-role="button" data-rel="dialog">Definition of<br>Final Average Compensation</a>
+                    </div>
+                    
+                    <br>
+                    <div data-role="fieldcontain">
+                        <input type="button" value="Calculate" name="B1" id="B1" onclick="Calculate()">
+                            <input name="MoRetAllow" id="B2" maxlength="10" style="color: #60c0c0; font-weight: bold; font-size: 20px; text-align: center">
+                                <br>
+                                <input type="reset" value="Reset" name="reset" id="reset"/>
+                                </div>
+                    
+                </form>
+                <div>                    <p class="article"><font size="2" color="#600000">
+                    *</font>
+                
+                Your final average compensation is one of the factors used to determine your lifetime benefit. For <strong>Tier 1 members</strong>, it is your <strong>highest 12-consecutive months</strong> of earnable compensation at any time during your membership or at another agency with which you have established reciprocity. For <strong>Tier 2 members</strong>, it is the <strong>average of your highest 36-consecutive months</strong> of pensionable compensation at any time during your membership with SBCERA or at another agency with which you have established reciprocity. For this calculator you must enter your average <strong>monthly</strong> final average compensation. Do not enter your annual compensation.</p>
+                
+                <p class="article"><b><font color="#600000">Service Credit under Different Retirement Formulas:</font></b> Please use the <a href="#page4-2" target="_blank">Split Service Calculator</a> if you have service credit under different retirement formulas (e.g. if you have service credit as a General and Safety member or as a Tier 1 and Tier 2 member.) The calculator above will not calculate benefit estimates for split plan service credit. Instead, you must use the split service calculator.</p>
+                </div>
+                
+                <div style="float: right">
+                    <a href="#page4-2" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-transition="slide">Split Service Calculator</a>
+                </div>
+                
+            </div><!-- /content -->
+            
+            <div data-role="panel"  id="left-panel4-1"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel4-1" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 4-1 Ret Calc -->
+        
+        <div data-role="page" id="page4-2" name="SplitRetirementPage" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel4-2" data-theme="b">Menu</a>
+                <a href="#right-panel4-2" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content" class="tableBox">
+                
+                <h3>Split Service Retirement Calculator</h3>
+                
+                <div>
+                    <p>The calculator below was created to assist members in understanding how their benefit is calculated. However, this is only an estimate and it is based on the data entered. If you would like an official benefit estimate, please <a href="http://www.sbcera.org/about/contact.html" target="_blank">contact SBCERA</a> to request one or create your own estimates by logging into <a href="http://services.sbcera.org/MemberDirect/" target="_blank">Member Direct</a>.</p>
+                    <p><b>Please enter or select the appropriate information as requested below.</b></p>
+                </div>
+                
+                <form method="POST" name="SplitRetBenCalc" onSubmit="">
+                    <div>
+                        <a href="#pageRetElig" data-role="button" data-rel="dialog">Definition of<br>Retirement Eligibility</a>
+                    </div>
+                    <br>
+                    <fieldset data-role="controlgroup" class="ui-field-contain">
+                        <div data-role="fieldcontain">
+                            <legend><h1><b>Input Years of Service Credit:</b></h1></legend><br>
+                            <div><h3>Tier 1</h3></div>
+                            
+                            <div class="hidden">
+                                <input type="checkbox" name="tiers" value="tier2055Split" checked="checked">
+                                    </div>
+                            <label for="ServiceMN">General Member (2% @ 55)<br>
+                            </label>
+                            <input type="number" id="ServiceMN" name="ServiceMN" onFocus="this.select()" onBlur="ABC(this);"  style="text-align: center" placeholder="Years as General Member (2% @ 55)" value="0">
+                                
+                                <br>
+                                <br>
+                                <br>
+                                
+                                <div class="hidden">
+                                    <input type="checkbox" name="tiers" value="Safety3Split" checked="checked">
+                                        </div>
+                                <label for="ServiceEF">Safety Member (3% @ 50)<br>
+                                </label>
+                                <input type="number" id="ServiceEF" name="ServiceEF" onFocus="this.select()" onBlur="ABC(this);" style="text-align:center" placeholder="Years as Safety Member (3% @ 50)" value="0">
+                                    </div>
+                    </fieldset>
+                    
+                    <fieldset data-role="controlgroup" class="ui-field-contain">
+                        <div data-role="fieldcontain">
+                            <div><h3>Tier 2</h3></div>
+                            
+                            <div class="hidden">
+                                <input type="checkbox" name="tiers" value="tier2Split" checked="checked">
+                                    </div>
+                            <label for="ServiceB">General Member (2.5% @ 67)
+                            </label>
+                            <input type="number" id="ServiceB" name="ServiceB" onFocus="this.select()" onBlur="ABC(this);"  style="text-align: center" placeholder="Years as General Member (2.5% @ 67)" value="0">
+                                
+                                <br>
+                                <br>
+                                <br>
+                                
+                                <div class="hidden">
+                                    <input type="checkbox" name="tiers" value="safetytier2Split" checked="checked">
+                                        </div>
+                                <label for="ServiceA">Safety Member (2.7% @ 57)
+                                </label>
+                                <input type="number" id="ServiceA" name="ServiceA" onFocus="this.select()" onBlur="ABC(this);" style="text-align:center" placeholder="Years as Safety Member (2.7% @ 57)" value="0">
+                                    </div>
+                    </fieldset>
+                    
+                    <div data-role="fieldcontain">
+                        <label for="Total"><b>Total</b>
+                        </label>
+                        
+                        <input name="Total" id="Total" value="0" style="font-weight: bold; text-align:center">
+                            <p>(Should equal your total SBCERA service credit)</p>
+                            </div>
+                    <br>
+                    <div data-role="fieldcontain">
+                        <label for="SplitAge">Age at Retirement:
+                        </label>
+                        <input type="number" id="SplitAge" name="SplitAge" style="text-align: center">
+                            <p>Age at retirement is calculated in quarter year increments; i,e, 50, 50.25, 50.50, 50.75)</p>
+                            </div>
+                    <br>
+                    <div data-role="fieldcontain">
+                        <label for="SplitFinAvgMoComp">Final Average Compensation:</label>
+                        <input type="number" id="SplitFinAvgMoComp" name="SplitFinAvgMoComp" style="text-align: center">
+                            <p>*(Do not use dollar signs or commas in the Final Average Compensation field.)</p>
+                            </div>
+                    
+                    <div data-role="fieldcontain">
+                        <div>
+                            <a href="#pageFinalComp" data-role="button" data-rel="dialog">* Definition of<br>Final Compensation</a>
+                        </div>
+                        <br>
+                        <input type="button" value="Calculate" name="B1" id="SplitB1" onClick="SplitCalculate()">
+                            <input name="SplitMoRetAllow" id="SplitB2" style="color: #60c0c0; font-weight: bold; font-size: 20px; text-align: center">
+                                <br>
+                                <input type="reset" value="Reset" name="SplitReset" id="SplitReset">
+                                    </div>
+                </form>
+                <div style="float: left">
+                    <a href="#page4-1" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="slide" data-direction="reverse">Retirement Calculator</a>
+                </div>
+                
+            </div>
+            
+            <div data-role="panel"  id="left-panel4-2"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel4-2" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 4-2 Ret Calc -->
+        
+        <div data-role="dialog" id="pageFinalComp" data-theme="a">
+            
+            <div data-role="content">
+                <h1>Final Average Compensation</h1>
+                <p><strong>Final Average Compensation – </strong>One of the  factors used in determining your lifetime monthly retirement benefit. For Tier  1 members, it is your highest  12-consecutive months of earnable compensation at any time during your  membership or another agency with which you have established reciprocity. For  Tier 2 members, it is the average of your highest 36-consecutive months of  pensionable compensation at any time during your membership with SBCERA.</p>
+                <a href"#" data-rel="back" data-role="button">Close</a>
+            </div>
+            
+        </div>
+        
+        <div data-role="dialog" id="pageRetElig" data-theme="a">
+            
+            <div data-role="content">
+                
+                <h1>Retirement Eligibility</h1>
+                <p style="margin: 0px;"><b>Tier 1 Member</b> (SBCERA membership date is <strong>prior to</strong> January 1, 2013)</p>
+                <ul>
+                    <li>Members <strong>Age 50</strong> or older may retire with at least <strong>10 years</strong> of service credit</li>
+                    <li>Members <strong>Age 70</strong> or older may retire at any time, with any amount of service credit</li>
+                    <li><strong>General</strong> members may retire, regardless of age, with at least <strong>30 years</strong> of service credit</li>
+                    <li><strong>Safety</strong> members may retire, regardless of age, with at least <strong>20 years</strong> of service credit</li>
+                    <li>Active part-time members may retire at <strong>Age 55</strong> or older with at least <strong>10 years</strong> of membership and <strong>5 years</strong> of service credit</li>
+                </ul>
+                <p style="margin: 0px;"><b>Tier 2 Member</b> (SBCERA membership date is <strong>on or after</strong> January 1, 2013)</p>
+                <ul>
+                    <li><strong>General</strong> members at <strong>age 52</strong> with at least <strong>5 years</strong> of service credit. </li>
+                    <li><strong>Safety</strong> members at <strong>age 50</strong> with at least <strong>5 years</strong> of service credit. </li>
+                    <li>Members<strong> Age 70</strong> or older may retire at any time, with any amount of service credit</li>
+                </ul>
+                
+                <a href"#" data-rel="back" data-role="button">Close</a>
+            </div>
+        </div>
+        
+        <div data-role="page" id="page5" name="Forms" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel5" data-theme="b">Menu</a>
+                <a href="#right-panel5" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content" class="content">
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Address_Name_Change', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'AddressNameChangeFormMobile');">Address Name Change Request</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Authorization_for_EFT', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'AutoDepositFormMobile');">Authorization for Automatic Deposit</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Authorization_for_Release_of_Information', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'ReleaseAuthorizationFormMobile');">Authorization for Release of Information and Documents</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Beneficiary_Designation_Change', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'BeneficiaryChangeFormMobile');">Beneficiary Designation Change</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Benefit_Estimate_Member_Statement_Request', '_system', 'location=yes'); gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'BenefitEstimate_MemberStatementRequestFormMobile');">Benefit Estimate and Member Statement Request</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Declaration_Supplemental_Disability_Benefit', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Supplemental_DisabilityFormMobile');"> Declaration for Supplemental Disability Benefit</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Deduction_Authorization', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Deduction_AuthorizationFormMobile');">Deduction Authorization Form</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Justification_Non-Signature', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Non-Signature_SpouseFormMobile');">Justification for Non-Signature of Spouse</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Request_1099-R', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Request_1099-RFormMobile');"> Request for 1099-R Duplicate or Correction</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Request_to_Defer', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Request_Defer_RetirementFormMobile');"> Request for Deferred Retirement</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Request_Refund-Rollover-Leave-Funds_on_Deposit', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Contributions_Rollover_RequestFormMobile');">Request for Refund of Contributions</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Service_Purchase_Request', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Service_Purchase_RequestFormMobile');">Service Purchase Request Form</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Special_Durable_POA', '_system', 'location=yes');gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler,'Durable_POAFormMobile');">Special Durable Power of Attorney</a>
+                </div>
+                <br>
+                <div>
+                    <a data-role="button" onclick="window.open('http://www.sbcera.org/Form_Tax_Withholding', '_system', 'location=yes');window.plugins.googleAnalyticsPlugin.trackPageview('Tax_Withholding_ElectionFormMobile');">Tax Withholding Election</a>
+                </div>
+                <br>
+            </div>
+            
+            <div data-role="panel"  id="left-panel5"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel5" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 5 Forms -->
+        
+        <div data-role="page" id="page6" name="Meetings" data-theme="b">
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel6" data-theme="b">Menu</a>
+                <a href="#right-panel6" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                <script>$('#page6').on('pageinit', function(){ window.open('https://services.sbcera.org/sirepub/meetresults.aspx', '_blank')
+                                       
+                                       });</script>
+                
+                
+                <div class="tableBox">
+                    <p><b>SBCERA Board Agendas</b> are posted at least 72 hours prior to the upcoming Board meeting. Board Minutes are posted upon approval at the next regular Board meeting (e.g. February’s Board Minutes are posted following the March Board meeting).</p>
+                    <p>Please click the button below to view the SBCERA Board Agendas and Minutes.</p>
+                </div>
+                <div>
+                    <a href="https://services.sbcera.org/sirepub/meetresults.aspx" data-role="button" id="calendar" data-iconpos="top" data-icon="custom"><br>Meetings</a>
+                    
+                </div>
+                <!--<div><iframe src="https://services.sbcera.org/sirepub/meetresults.aspx" sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" width="100%"></iframe></div>-->
+                
+            </div><!-- /content-->
+            
+            <div data-role="panel"  id="left-panel6"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel6" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 6 Meetings -->
+        
+        <div data-role="page" id="page7" name="Contacts" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel7" data-theme="b">Menu</a>
+                <a href="#right-panel7" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            
+            <div data-role="content">
+                
+                
+                
+                <div class="tableBox"><p>You can contact SBCERA at the following numbers or click the buttons below for directions to our office or to send us an email.</p>
+                </div>
+                <div>
+                    <a href="tel:909-885-7980" data-role="button" id="phone" data-iconpos="top" data-icon="custom" onclick="window.GA.trackView('PhoneMobile');"><br>909-885-7980</a>
+                </div>
+                <div>
+                    <a href="tel:1-877-722-3721" data-role="button" id="phone" data-iconpos="top" data-icon="custom"  onclick="window.GA.trackView('TollFreePhoneMobile');"><br>1-877-722-3721</a>
+                </div>
+                <div>
+                    <a href="maps:q=SBCERA+348+West+Hospitality+Lane+San+Bernardino+CA+92415&z=15" data-role="button" id="map" data-iconpos="top" data-icon="custom" onclick="window.GA.trackView('DirectonsMobile');"><br>Directions</a>
+                </div>
+                
+                <div>
+                    <a href="mailto:communications@sbcera.org" data-role="button" id="email" data-iconpos="top" data-icon="custom"  onclick="window.GA.trackView('EmailMobile');"><br>Email</a>
+                </div>
+                <div>
+                    <!-- This button appears when you're available -->
+                    <a href="#" data-role="button" id="chat" data-iconpos="top" data-icon="custom" onclick="startOlark()"><br>Chat</a>
+                </div>
+                
+            </div><!-- /content -->
+            
+            <div data-role="panel"  id="left-panel7"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel7" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 7 Contacts -->
+        
+        <div data-role="page" id="page8" name="Videos" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel8" data-theme="b">Menu</a>
+                <a href="#right-panel8" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                <div class="tableBox">
+                    <p>This is the SBCERA YouTube Channel. Scroll through the video selection on the right hand side to choose a video.</p>
+                    <p>
+                </div>
+                <br>
+                <div id="player">
+                    
+                </div>
+                
+                
+                
+                
+            </div><!-- /content -->
+            
+            <div data-role="panel"  id="left-panel8"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel8" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 8 Videos -->
+        
+        <div data-role="page" id="page9" name="Events" data-theme="b">
+            
+            <div data-role="header" data-theme="b">
+                <h1>SBCERA</h1>
+                <a href="#left-panel9" data-theme="b">Menu</a>
+                <a href="#right-panel9" data-role="button" data-theme="b">Calculator</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">
+                <div class="ui-btn ui-btn-inline ui-corner-all ui-mini" data-theme="b" onClick="YTRSS()">Refresh</div>
+                
+                <div id="SBCERA-Events">
+                </div>
+                
+                <script type="text/javascript">
+                    $(document).ready(
+                                      function () {
+                                      
+                                      EventRSS()
+                                      });
+                                      
+                                      function EventRSS(){
+                                          
+                                          $('#SBCERA-Events').rssfeed('http://www.sbcera.org/Calendar', {
+                                                                      options: 'true',
+                                                                      limit: 30,
+                                                                      content: true,
+                                                                      date: false,
+                                                                      linkcontent: true
+                                                                      });
+                                                                      
+                                      };
+                
+                    </script>
+                
+                
+                
+                
+            </div><!-- /content -->
+            
+            <div data-role="panel"  id="left-panel9"  data-display="overlay" data-theme="a">
+                
+                
+                <p><h1>Menu</h1></p>
+                <a href="#page1" data-role="button" id="house" data-iconpos="top" data-icon="custom"  onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'HomeMobile');"></br>Home</a>
+                
+                <a href="#page6" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'MeetingsMobile');"></br>Meetings</a>
+                
+                <a href="#page3" data-role="button" id="book" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'NewsletterMobile');"></br>Newsletter</a>
+                
+                <a href="#page5" data-role="button" id="cabinet" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'FormsMobile');"></br>Forms</a>
+                
+                <a href="#page2" data-role="button" id="compass" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'CompassMobile');"></br>Compass</a>
+                
+                <a href="#page8" data-role="button" id="movie" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'VideosMobile');"></br>Videos</a>
+                
+                <a href="#page7" data-role="button" id="speaker" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'ContactMobile');"></br>Contact</a>
+                
+                <a href="#page9" data-role="button" id="calendar" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'EventsMobile');"></br>Events</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /left panel -->
+            
+            <div data-role="panel"  id="right-panel9" data-display="overlay" data-position="right" data-theme="a">
+                
+                <p>Retirement Calculator</p>
+                <a href="#page4" data-role="button" id="warning" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, ImportantNoticeMobile');"></br>Important Notice</a>
+                
+                <a href="#page4-1" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'RetCalcMobile');"></br>Retirement Calculator</a>
+                
+                <a href="#page4-2" data-role="button" id="piggy" data-iconpos="top" data-icon="custom" onclick="gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, 'SplitCalcMobile');"></br>Split Plan<br>Retirement Calculator</a>
+                
+                <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true">Close</a>
+                
+            </div><!-- /right panel -->
+            
+        </div><!-- /page 9 Events -->
+        
+        
+    </body>
+</html>
