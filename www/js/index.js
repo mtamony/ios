@@ -39,7 +39,7 @@ function registerPushwooshAndroid() {
                               });
     
     //projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID"
-    pushNotification.registerDevice({ projectid: "591226664737", appid : "4fc511c2aa1141.01630055" },
+    pushNotification.registerDevice({ projectid: "xxxxxxxxxxx", appid : "xxxxxxxxxxxxxx" },
                                     function(token) {
                                     //alert(token);
                                     //callback when pushwoosh is ready
@@ -147,7 +147,7 @@ function registerPushwooshIOS() {
                               pushNotification.setApplicationIconBadgeNumber(0);
                               });
     
-    pushNotification.registerDevice({alert:false, badge:true, sound:true, pw_appid:"4fc511c2aa1141.01630055", appname:"SBCERA"},
+    pushNotification.registerDevice({alert:false, badge:true, sound:true, pw_appid:"xxxxxxxxxxxxxxxxxxx", appname:"SBCERA"},
                                     function(status) {
                                     var deviceToken = status['deviceToken'];
                                     console.warn('registerDevice: ' + deviceToken);
